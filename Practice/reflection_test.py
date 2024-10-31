@@ -1,6 +1,7 @@
 import sys
 
 sys.path.append('./')
+sys.path.append('Practice')
 from reflection import find_reflection
 
 import numpy as np
