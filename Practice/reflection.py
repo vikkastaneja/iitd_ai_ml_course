@@ -7,7 +7,7 @@
 import numpy as np
 
 def scalar_factor(X, V) -> float:
-    c = np.dot(X, V)/np.dot(V, V)
+    c = round(np.dot(X, V)/np.dot(V, V), 2)
     print(f"Scalar factor: {c}")
     return c
 
@@ -16,4 +16,6 @@ def reflection(X, V):
     print(f"Reflection of {X} on {V} is {R}")
     return R
 
-reflection(np.array([2,3]), np.array([1,0]))
+actual = reflection(np.array([2,3]), np.array([1,0]))
+expected = np.array([2., 0.])
+np.testing.assert_array_equal(actual, expected, "Results are different")
