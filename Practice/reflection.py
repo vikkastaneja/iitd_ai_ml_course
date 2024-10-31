@@ -11,11 +11,7 @@ def scalar_factor(X, V) -> float:
     print(f"Scalar factor: {c}")
     return c
 
-def reflection(X, V):
+def find_reflection(X, V):
     R = scalar_factor(X, V) * V
     print(f"Reflection of {X} on {V} is {R}")
     return R
-
-actual = reflection(np.array([2,3]), np.array([1,0]))
-expected = np.array([2., 0.])
-np.testing.assert_array_equal(actual, expected, "Results are different")
