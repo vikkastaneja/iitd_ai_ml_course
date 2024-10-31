@@ -1,7 +1,7 @@
 import sys
 
 sys.path.append('./')
-sys.path.append('Practice')
+sys.path.append('linear_algebra_practice')
 from reflection import find_reflection
 
 import numpy as np
