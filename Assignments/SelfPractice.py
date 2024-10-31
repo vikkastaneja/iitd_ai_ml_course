@@ -3,13 +3,13 @@ import sys
 import os
 
 parent_dir = ".."
-libaries = "Libraries"
+libraries = "common_library"
 current_dir = os.path.dirname(__file__)
-final_name = os.path.join(current_dir, parent_dir)
-libraries_path = os.path.join(final_name, "Libraries")
+s = [current_dir, parent_dir,libraries, 'src', 'common_functions']
+libraries_path = os.path.join(*s)
 sys.path.append(libraries_path)
 
-from Enums import NumOfSolutions
+from enumerators import NumOfSolutions
 
 # Find out if there are none, unique or many solutions to system of linear equations
 # AX = b
