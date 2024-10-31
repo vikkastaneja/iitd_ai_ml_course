@@ -1,0 +1,23 @@
+Self Practice Problems: Linear Algebra
+October 2024
+Question 1: For the given system of linear equations find out whether there
+exists a unique solution or infinite solutions or no solution (may use the python
+script discussed in class):
+• 2x + 3y = 5
+4x + 6y = 10
+
+• x - y + z = 2
+2x + y + z = 5
+3x + 2y + 2z = 7
+
+• 3x + 2y = 8
+6x + 4y = 16
+9x + 6y = 24
+
+• x + 2y + z = 4
+2x - y + 3z = 1
+-x + y + 2z = 3
+
+• x + y + z = 1
+2x + 3y + 2z = 4
+3x + 5y + 3z = 5
