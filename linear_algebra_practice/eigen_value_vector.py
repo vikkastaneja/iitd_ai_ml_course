@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 # Eigen vector condition: AX=cX where A is transformation, X is a vector, c is a scalar
 # In order to do it in python without using libraries in numpy:
@@ -18,8 +19,13 @@ def get_coefficients_2d_matrix(A):
 
 # The following method solve for 'c' and find eigen values
 def get_eigen_values_2d_matrix(coeffs):
-    return np.roots(coeffs)
-
+    a = coeffs[0]
+    b = coeffs[1]
+    c = coeffs[2]
+    d = b*b - 4*a*c
+    s1 =(-b + math.sqrt(d)) / 2 * a
+    s2 =(-b - math.sqrt(d)) / 2 * a
+    return np.array([s1, s2])
 
 # Calculate one possible eigen vector based on eigen value
 def get_one_eigen_vector(A, c, array_index):
