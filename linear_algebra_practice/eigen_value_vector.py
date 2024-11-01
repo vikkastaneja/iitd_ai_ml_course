@@ -1,17 +1,46 @@
 import numpy as np
 import math
 
+# This file contains code for calculating Eigen Values and Eigen Vectors for 2D arrays
 # Eigen vector condition: AX=cX where A is transformation, X is a vector, c is a scalar
 # In order to do it in python without using libraries in numpy:
 # 1. (A-cI)X = 0 where X != 0
 # 2. A-cI = 0
 # 3. det(A-cI) = 0
 # 4. For 2D matrix, expand det(A-cI) ==> c^2 - c * trace(A) + det(A)
-# 5. Solve for c and that are eigen values
-# 6. Solve the system of linear equations (A-cI)X = 0 for each C and we get eigen vectors 
+# 5. Solve for c and that are eigen values using (-b + SQRT(d))/2a and (-b - SQRT(d))/2a
+# 6. Solve the system of linear equations AX = cX for each 'c' and we get eigen vectors
+# Calculate one possible eigen vector based on eigen value as follows:
+# Let A (2D matrix) and X (Vector) are as follows:
+"""
+A = [a1 a2]
+    [b1 b2]
 
+X = [X]
+    [Y]
 
-# The following method finds out coefficients of c^2, c and constant term of quadratic equation in 4
+To solve:
+AX=cX
+
+[a1 a2]  [X]  =  c[X]
+[b1 b2]  [Y]  =  c[Y]
+
+a1*X + a2*Y = c*X
+b1*X + b2*Y = c*Y
+
+Solve any equation:
+(a1-c)*X = -a2*Y
+X = (-a2/(a1-c))*Y
+
+Let d = (-a2/(a1-c))
+
+One possible solution is: [d, 1], which is also an Eigen Vector
+Optionally, normalize it by dividing each value in vector by vector's value:
+So, the normalized vector becomes:
+[d/sqrt(d^2+1^2), 1/sqrt(d^2+1^2)], which is also an Eigen Vector
+"""
+
+# The following method finds out coefficients of c^2, c and constant terms of quadratic equation in point 4 above
 def get_coefficients_2d_matrix(A):
     trace = A[0, 0] + A[1, 1]
     det = A[0, 0] * A[1, 1] - A[0, 1] * A[1, 0]
@@ -27,7 +56,7 @@ def get_eigen_values_2d_matrix(coeffs):
     s2 =(-b - math.sqrt(d)) / 2 * a
     return np.array([s1, s2])
 
-# Calculate one possible eigen vector based on eigen value
+# Calculate one possible eigen vector
 def get_one_eigen_vector(A, c, array_index):
     # simplify based on the eigen value
     unit_array = []

@@ -2,3 +2,5 @@
 common_library/common_functions.egg-info/
 common_library/dist/
 htmlcov/
+.coverage
+.DS_Store
