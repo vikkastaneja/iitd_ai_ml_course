@@ -6,7 +6,7 @@ from eigen_value_vector import get_one_eigen_vector, get_eigens
 
 import numpy as np
 import unittest
-class TryReflection(unittest.TestCase):
+class EigenTests(unittest.TestCase):
     def test_one_eigen_vector_1(self):
         actual = get_one_eigen_vector(np.array([2, 3]), 2, 1)
         expected = np.array([-0.4472136, 0.89442719])
