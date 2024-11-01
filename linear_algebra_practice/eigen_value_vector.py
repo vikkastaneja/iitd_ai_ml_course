@@ -11,6 +11,7 @@ import math
 #    where det(A) is simply A[0][0] * A[1][1] - A[1][0] * A[0][1],
 #    and trace(A) = A[0][0] + A[1][1] --> sum of diagonal elements
 # 5. Solve for c and that are eigen values using (-b + SQRT(d))/2a and (-b - SQRT(d))/2a
+#    where d = b^2 - 4ac
 # 6. Solve the system of linear equations AX = cX for each 'c' and we get eigen vectors
 # Calculate one possible eigen vector based on eigen value as follows:
 # Let A (2D matrix) and X (Vector) are as follows:
@@ -62,12 +63,13 @@ def get_eigen_values_2d_matrix(coeffs):
 def get_one_eigen_vector(A, c, array_index):
     # simplify based on the eigen value
     unit_array = []
+    A_temp = A[array_index]
     if array_index == 0:
         unit_array = [1, 0]
     elif array_index == 1:
         unit_array = [0, 1]
 
-    arr = A - np.multiply(unit_array, c)
+    arr = A_temp - np.multiply(unit_array, c)
 
     tempx = -arr[1]
     tempy = arr[0]
@@ -83,7 +85,7 @@ def get_one_eigen_vector(A, c, array_index):
 
 # The following function finds the eigen vectors from the A and c above
 def get_eigen_vector(A, c):
-    return get_one_eigen_vector(A[0], c, 0)
+    return get_one_eigen_vector(A, c, 0)
 
 def get_eigens(A):
     coeffs = get_coefficients_2d_matrix(A)
