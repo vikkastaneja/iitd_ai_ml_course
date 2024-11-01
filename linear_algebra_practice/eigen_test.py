@@ -8,14 +8,26 @@ import numpy as np
 import unittest
 class TryReflection(unittest.TestCase):
     def test_one_eigen_vector_1(self):
-        actual = get_one_eigen_vector(np.array([4, 1]), 2, 1)
-        expected = np.array([0.24253563, 0.9701425])
+        actual = get_one_eigen_vector(np.array([2, 3]), 2, 1)
+        expected = np.array([-0.4472136, 0.89442719])
 
         np.testing.assert_array_almost_equal(actual, expected, 7, "Results are different", verbose=True)
 
     def test_one_eigen_vector_2(self):
         actual = get_one_eigen_vector(np.array([4, 1]), 2, 0)
         expected = np.array([-0.4472136, 0.89442719])
+
+        np.testing.assert_array_almost_equal(actual, expected, 7, "Results are different", verbose=True)
+
+    def test_one_eigen_vector_3(self):
+        actual = get_one_eigen_vector(np.array([2, 3]), 5, 1)
+        expected = np.array([0.70710678, 0.70710678])
+
+        np.testing.assert_array_almost_equal(actual, expected, 7, "Results are different", verbose=True)
+
+    def test_one_eigen_vector_4(self):
+        actual = get_one_eigen_vector(np.array([4, 1]), 5, 0)
+        expected = np.array([0.70710678, 0.70710678])
 
         np.testing.assert_array_almost_equal(actual, expected, 7, "Results are different", verbose=True)
 
