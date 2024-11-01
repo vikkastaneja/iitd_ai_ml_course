@@ -11,6 +11,7 @@ import math
 #    where det(A) is simply A[0][0] * A[1][1] - A[1][0] * A[0][1],
 #    and trace(A) = A[0][0] + A[1][1] --> sum of diagonal elements
 # 5. Solve for c and that are eigen values using (-b + SQRT(d))/2a and (-b - SQRT(d))/2a
+#    where d = b^2 - 4ac
 # 6. Solve the system of linear equations AX = cX for each 'c' and we get eigen vectors
 # Calculate one possible eigen vector based on eigen value as follows:
 # Let A (2D matrix) and X (Vector) are as follows:
