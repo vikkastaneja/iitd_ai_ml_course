@@ -8,6 +8,8 @@ import math
 # 2. A-cI = 0
 # 3. det(A-cI) = 0
 # 4. For 2D matrix, expand det(A-cI) ==> c^2 - c * trace(A) + det(A)
+#    where det(A) is simply A[0][0] * A[1][1] - A[1][0] * A[0][1],
+#    and trace(A) = A[0][0] + A[1][1] --> sum of diagonal elements
 # 5. Solve for c and that are eigen values using (-b + SQRT(d))/2a and (-b - SQRT(d))/2a
 # 6. Solve the system of linear equations AX = cX for each 'c' and we get eigen vectors
 # Calculate one possible eigen vector based on eigen value as follows:
