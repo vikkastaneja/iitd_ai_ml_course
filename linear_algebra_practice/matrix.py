@@ -6,7 +6,8 @@
 # 4. Move to the Next Row and Column: Repeat the steps for the next row and column, treating the next row's leading non-zero element as the pivot. Ensure each pivot is to the right of the previous row’s pivot.
 #
 # Matrix Rank:
-# The rank of the matrix is the number of non-zero rows. In this case, all three rows have non-zero entries, so the rank is 3.
+# The rank of the matrix is the number of non-zero rows.
+
 import numpy as np
 
 def find_pivot_normalize_row(matrix, row):
