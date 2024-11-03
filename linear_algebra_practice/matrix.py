@@ -59,14 +59,10 @@ def find_rank_2d_matrix(matrix):
 
 # Ensure that each row represents a feature and the matrix is numpy array
 def get_covariance_matrix_2d_array(matrix):
-    print(matrix)
-    print(type(matrix))
     n = matrix.shape[1]
     sums = np.sum(matrix, axis=1)
     means = sums/n
 
     centered_matrix = (matrix.transpose() - means).transpose()
     covariance_matrix = centered_matrix.dot(centered_matrix.transpose()) / (n - 1)
-    print(f"Actual covariance matrix: {np.cov(matrix)}")
-    np.testing.assert_almost_equal(covariance_matrix, np.cov(matrix), err_msg="Covariance matrices are not equal")
     return covariance_matrix
