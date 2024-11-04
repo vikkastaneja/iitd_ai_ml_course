@@ -4,7 +4,8 @@ sys.path.append('./')
 sys.path.append('linear_algebra_practice')
 
 from matrix import find_rank_2d_matrix as find_rank
-from matrix import get_covariance_matrix_2d_array as get_covariance
+from matrix import get_covariance_matrix_2d_array_using_transpose as get_covariance_transpose
+from matrix import get_covariance_matrix_2d_array_using_cov_calc as get_covariance_cov_calc
 import pytest
 import numpy as np
 
@@ -37,5 +38,12 @@ def covariance_test_data():
             (np.array([[1,2,3,4,5],[2,4,6,8,10]]), np.array([[ 2.5,  5. ], [ 5.,  10. ]]))
             ]
 
-def test_covariance(covariance_test_data):
-    np.testing.assert_almost_equal(get_covariance(covariance_test_data[0][0]), covariance_test_data[0][1], err_msg="Covariance matrices are not equal")
+def test_covariance_using_transpose_method(covariance_test_data):
+    np.testing.assert_almost_equal(get_covariance_transpose(covariance_test_data[0][0]),
+                                                            covariance_test_data[0][1],
+                                                            err_msg="Covariance matrices are not equal")
+
+def test_covariance_using_cov_calculations(covariance_test_data):
+    np.testing.assert_almost_equal(get_covariance_cov_calc(covariance_test_data[0][0]),
+                                                            covariance_test_data[0][1],
+                                                            err_msg="Covariance matrices are not equal")

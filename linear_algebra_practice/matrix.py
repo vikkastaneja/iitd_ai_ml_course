@@ -58,7 +58,8 @@ def find_rank_2d_matrix(matrix):
     return len(temp_matrix) - count_zero_rows(temp_matrix)
 
 # Ensure that each row represents a feature and the matrix is numpy array
-def get_covariance_matrix_2d_array(matrix):
+# This method uses transpose method to calculate covariance matrix
+def get_covariance_matrix_2d_array_using_transpose(matrix):
     n = matrix.shape[1]
     sums = np.sum(matrix, axis=1)
     means = sums/n
@@ -66,3 +67,29 @@ def get_covariance_matrix_2d_array(matrix):
     centered_matrix = (matrix.transpose() - means).transpose()
     covariance_matrix = centered_matrix.dot(centered_matrix.transpose()) / (n - 1)
     return covariance_matrix
+
+def get_covariance(matrix, row_i, row_j):
+    cov = sum(matrix[row_i] * matrix[row_j]) / (matrix.shape[1] - 1)
+    return cov
+
+
+# Ensure that each row represents a feature and the matrix is numpy array
+# This method uses calculation of covariances using mathematical formula
+def get_covariance_matrix_2d_array_using_cov_calc(matrix):
+    num_records = matrix.shape[1]
+    num_features = matrix.shape[0]
+
+    sums = np.sum(matrix, axis=1)
+    means = sums/num_records
+
+    centered_matrix = (matrix.transpose() - means).transpose()
+    covariance_matrix = []
+    for i in range(centered_matrix.shape[0]):
+        row = []
+        for j in range(centered_matrix.shape[0]):
+            row.append(get_covariance(centered_matrix, i, j))
+
+        covariance_matrix.append(row)
+
+    np_covariance_matrix = np.array(covariance_matrix)
+    return np_covariance_matrix
