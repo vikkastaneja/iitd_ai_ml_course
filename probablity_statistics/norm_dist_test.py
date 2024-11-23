@@ -1,5 +1,5 @@
-from norm_dist_cdf import generate_normal_distribution as generate_distribution
-from norm_dist_cdf import find_probability_using_cdf_and_plot as find_probability_using_cdf
+from norm_dist import generate_normal_distribution as generate_distribution
+from norm_dist import find_probability_using_cdf_and_plot as find_probability_using_cdf
 
 def test_generated_distribution():
     number_of_samples = 10000
