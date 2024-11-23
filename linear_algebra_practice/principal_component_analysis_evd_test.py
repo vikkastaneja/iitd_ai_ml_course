@@ -3,7 +3,7 @@ import sys
 sys.path.append('./')
 sys.path.append('linear_algebra_practice')
 
-from principal_component_analysis import get_pca_array_2d_matrix as get_pca
+from principal_component_analysis_evd import get_pca_array_2d_matrix as get_pca
 import pytest
 import numpy as np
 
