@@ -5,3 +5,4 @@ codecov
 matplotlib
 scipy
 pandas
+scikit-learn
