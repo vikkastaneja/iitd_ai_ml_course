@@ -15,6 +15,7 @@ import math
 # 6. Solve the system of linear equations AX = cX for each 'c' and we get eigen vectors
 # Calculate one possible eigen vector based on eigen value as follows:
 # Let A (2D matrix) and X (Vector) are as follows:
+# Eigen values of a square matrix (e.g. Covariance Matrix) which is symmetric are orthogonal --> PROOF NEEDED
 """
 A = [a1 a2]
     [b1 b2]

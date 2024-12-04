@@ -2,3 +2,7 @@ numpy
 pytest
 pytest-cov
 codecov
+matplotlib
+scipy
+pandas
+scikit-learn

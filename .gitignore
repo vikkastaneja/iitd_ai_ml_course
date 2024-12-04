@@ -4,3 +4,4 @@ common_library/dist/
 htmlcov/
 .coverage
 .DS_Store
+assignment/
