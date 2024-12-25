@@ -4,6 +4,23 @@
 # P is orthogonal to V ==> dot product of P and V = 0
 # (X-R).V = 0 => (X-cV).V = 0 => X.V - cV.V = 0 => c = (X.V)/(V.V) => a scalar
 # R = cV = ((X.V)/(V.V))V
+'''
+To understand how P, X, V and R are related:
+
+              ^
+             /|
+            / |
+           /  |
+          /   |  P
+         /    |
+    X   /     |
+       /      |
+      /       |
+(0, 0)-------->------------->
+        R             V
+    R + P = X ==> P = X - R (which is a constant times V)
+
+'''
 import numpy as np
 
 def scalar_factor(X, V) -> float:

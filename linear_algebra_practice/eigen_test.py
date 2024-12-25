@@ -52,3 +52,15 @@ def test_get_eigen_values():
     B = get_coefficients_2d_matrix(A)
     actual = get_eigen_values_2d_matrix(B)
     np.testing.assert_array_almost_equal(actual, np.array([5., 2.]), 7, "Eigen values are different", verbose=True)
+
+def test_get_eigen_values_2():
+    A = np.array([[5, 4], [4, 5]])
+    B = get_coefficients_2d_matrix(A)
+    val = get_eigen_values_2d_matrix(B)
+    np.testing.assert_equal(val, np.array([9., 1.]))
+
+def test_get_eigen_values_3():
+    A = np.array([[4, 1], [1, 4]])
+    B = get_coefficients_2d_matrix(A)
+    val = get_eigen_values_2d_matrix(B)
+    np.testing.assert_equal(val, np.array([5., 3.]))

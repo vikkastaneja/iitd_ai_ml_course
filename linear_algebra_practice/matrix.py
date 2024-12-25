@@ -93,3 +93,14 @@ def get_covariance_matrix_2d_array_using_cov_calc(matrix):
 
     np_covariance_matrix = np.array(covariance_matrix)
     return np_covariance_matrix
+
+def get_inverse_2x2_matrix(A):
+    # Inverse of a 2x2 matrix exist, or a matrix is invertible if det(A) != 0.
+    # Hence return None if det(A) = 0
+    det_matrix = A[0][0] * A[1][1] - A[0][1] * A[1][0]
+    if det_matrix == 0:
+        return None
+
+    adj_matrix = np.array([[A[1][1], -A[0][1]],[-A[1][0], A[0][0]]])
+
+    return adj_matrix/det_matrix
