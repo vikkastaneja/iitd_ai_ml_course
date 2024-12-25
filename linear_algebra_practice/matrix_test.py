@@ -6,6 +6,7 @@ sys.path.append('linear_algebra_practice')
 from matrix import find_rank_2d_matrix as find_rank
 from matrix import get_covariance_matrix_2d_array_using_transpose as get_covariance_transpose
 from matrix import get_covariance_matrix_2d_array_using_cov_calc as get_covariance_cov_calc
+from matrix import get_inverse_2x2_matrix
 import pytest
 import numpy as np
 
@@ -47,3 +48,7 @@ def test_covariance_using_cov_calculations(covariance_test_data):
     np.testing.assert_almost_equal(get_covariance_cov_calc(covariance_test_data[0][0]),
                                                             covariance_test_data[0][1],
                                                             err_msg="Covariance matrices are not equal")
+
+def test_inverse():
+    np.testing.assert_equal(get_inverse_2x2_matrix(np.array([[2,3],[1,4]])),
+                                   np.array([[ 0.8, -0.6], [-0.2, 0.4]]))
